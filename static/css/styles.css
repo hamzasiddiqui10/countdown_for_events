@@ -1,0 +1,65 @@
+:root{
+	--bg: #f7f7f7;
+	--surface: #ffffff;
+	--text: #111827;
+	--muted: #6b7280;
+	--header-bg: #111827;
+	--header-text: #ffffff;
+	--accent: #2563eb;
+	--card-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, Helvetica, sans-serif;margin:0;padding:0;background:var(--bg);color:var(--text);transition:background-color .25s ease,color .25s ease}
+.container{max-width:980px;margin:0 auto;padding:20px}
+header{background:var(--header-bg);color:var(--header-text);padding:12px 0}
+header .container{display:flex;align-items:center;justify-content:space-between}
+header h1{display:inline-block;margin:0;font-size:1.125rem}
+header a{color:inherit;text-decoration:none}
+nav{display:flex;gap:12px;align-items:center}
+nav a{color:inherit;text-decoration:none;padding:6px 10px;border-radius:6px}
+.theme-toggle{background:transparent;border:1px solid rgba(255,255,255,0.12);color:inherit;padding:6px 10px;border-radius:8px;cursor:pointer}
+.flashes{list-style:none;padding:0;margin:12px 0}
+.flashes li{background:#fffbcc;border:1px solid #ffe58f;padding:8px;margin-bottom:8px;border-radius:6px}
+.events{display:flex;flex-wrap:wrap;gap:12px}
+.event-card{background:var(--surface);padding:14px;border-radius:8px;box-shadow:var(--card-shadow);width:280px}
+.event-card h3{margin:0 0 6px}
+.actions{margin-top:8px}
+form label{display:block;margin-bottom:8px}
+form input, form button, form textarea, select{width:100%;padding:8px;margin-top:4px;border-radius:6px;border:1px solid #e5e7eb}
+button{padding:8px 12px;border-radius:6px;border:none;background:var(--accent);color:#fff;cursor:pointer}
+
+/* Dark theme overrides: add `theme-dark` on body */
+body.theme-dark{
+	--bg: #0b1220;
+	--surface: #0f1724;
+	--text: #e6eef8;
+	--muted: #9aa6b2;
+	--header-bg: linear-gradient(90deg,#071028, #0b1220);
+	--header-text: #e6eef8;
+	--accent: #60a5fa;
+	--card-shadow: 0 4px 18px rgba(2,6,23,0.6);
+}
+
+/* Small responsive tweaks */
+@media (max-width:600px){
+	.event-card{width:100%}
+	header h1{font-size:1rem}
+}
+
+/* Dashboard: full-width event rows */
+.events{display:block;margin-top:12px}
+.event-card{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px;border-left:4px solid transparent;border-radius:8px;transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease}
+.event-card:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(16,24,40,0.08)}
+.event-main{flex:1;min-width:0}
+.event-main h3{font-family:'Poppins',system-ui,Helvetica,Arial,sans-serif;font-weight:700;margin:0 0 6px;font-size:1.125rem;color:var(--text)}
+.event-main .when{color:var(--muted);font-size:0.95rem}
+.event-side{display:flex;flex-direction:column;align-items:flex-end;gap:8px;min-width:160px}
+.countdown{font-weight:600;font-family:'Poppins',system-ui,Helvetica,Arial,sans-serif;font-size:1rem;color:var(--accent)}
+.actions a, .actions button{font-weight:600}
+.actions a{color:var(--accent);text-decoration:none;padding:6px 10px;border-radius:6px}
+.actions form{display:inline}
+
+@media (max-width:740px){
+	.event-card{flex-direction:column;align-items:stretch}
+	.event-side{align-items:flex-start;min-width:0}
+}
